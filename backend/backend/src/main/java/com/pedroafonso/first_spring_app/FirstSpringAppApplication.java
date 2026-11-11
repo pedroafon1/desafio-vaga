@@ -1,13 +1,13 @@
-package vaga.dev.trainee;
+package com.pedroafonso.first_spring_app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TraineeApplication {
+public class FirstSpringAppApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TraineeApplication.class, args);
+		SpringApplication.run(FirstSpringAppApplication.class, args);
 	}
 
 }
