@@ -37,4 +37,13 @@ public class ParserLinhaTest {
         assertTrue(r.invalida().motivo().contains("Data"));
 
     }
+
+    @Test
+    void campoFaltandoEhInvalido() {
+        ResultadoLinha r = parser.parse(7, ";2026-10-05T08:00:00;72;60");
+
+        assertFalse(r.valida());
+    }
+
+
 }
