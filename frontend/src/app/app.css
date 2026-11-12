@@ -1,0 +1,4 @@
+main { max-width: 900px; margin: 2rem auto; font-family: sans-serif; padding: 0 1rem; }
+.upload { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; }
+.erro { color: #b00020; background: #fdecea; padding: 0.75rem; border-radius: 4px; }
+.resumo ul { list-style: none; padding: 0; display: flex; gap: 2rem; }

@@ -1,0 +1,25 @@
+<main>
+  <h1>Análise de excesso de velocidade</h1>
+
+  <section class="upload">
+    <input type="file" accept=".csv" (change)="aoEscolherArquivo($event)" />
+    <button (click)="analisar()" [disabled]="!arquivo() || carregando()">
+      {{ carregando() ? 'Analisando...' : 'Analisar' }}
+    </button>
+  </section>
+
+  @if (erro()) {
+  <p class="erro">{{ erro() }}</p>
+  }
+
+  @if (resultado(); as r) {
+  <section class="resumo">
+    <h2>Resumo</h2>
+    <ul>
+      <li>Linhas lidas: <strong>{{ r.resumo.linhasLidas }}</strong></li>
+      <li>Linhas válidas: <strong>{{ r.resumo.linhasValidas }}</strong></li>
+      <li>Total de episódios: <strong>{{ r.resumo.totalEpisodios }}</strong></li>
+    </ul>
+  </section>
+  }
+</main>
