@@ -12,7 +12,7 @@ public record Episodio(
         LocalDateTime fim,
         long duracaoSegundos,
         int velocidadeMaxima,
-        double excessoPercentual,
+        double excessoMaximoPercentual,
         Gravidade gravidade) {
 
     public static Episodio de(List<Leitura> leituras) {

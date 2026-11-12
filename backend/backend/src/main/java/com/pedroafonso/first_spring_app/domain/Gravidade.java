@@ -2,7 +2,7 @@ package com.pedroafonso.first_spring_app.domain;
 
 public enum Gravidade {
     LEVE(1),
-    GRAVE(2),
+    GRAVE(3),
     GRAVISSIMA(5);
 
     private final int pontos;

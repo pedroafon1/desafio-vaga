@@ -26,7 +26,7 @@ public class CalculadoraRanking {
 
         ranking.sort(Comparator
                 .comparingInt(RankingVeiculo::totalPontos).reversed()
-                .thenComparing(Comparator.comparingDouble(RankingVeiculo::velocidadeMaxima))
+                .thenComparing(Comparator.comparingDouble(RankingVeiculo::velocidadeMaxima).reversed())
                 .thenComparing(RankingVeiculo::placa));
 
         return ranking;

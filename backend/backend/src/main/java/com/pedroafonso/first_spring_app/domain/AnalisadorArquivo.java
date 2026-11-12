@@ -49,7 +49,7 @@ public class AnalisadorArquivo {
 
         List<Episodio> episodios = montador.montar(leituras);
         List<RankingVeiculo> ranking = calculadora.calcular(episodios);
-        Resumo resumo = new Resumo(linhasLidas, linhasInvalidas.size(), episodios.size());
+        Resumo resumo = new Resumo(linhasLidas, leituras.size(), episodios.size());
 
         return new ResultadoAnalise(resumo, episodios, ranking, linhasInvalidas);
     }

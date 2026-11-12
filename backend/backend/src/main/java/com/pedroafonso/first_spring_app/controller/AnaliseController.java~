@@ -1,0 +1,29 @@
+package com.pedroafonso.first_spring_app.controller;
+
+
+import com.pedroafonso.first_spring_app.domain.AnalisadorArquivo;
+import com.pedroafonso.first_spring_app.domain.records.ResultadoAnalise;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.nio.charset.StandardCharsets;
+
+@RestController
+@RequestMapping("api/analises")
+@CrossOrigin(origins = "http://localhost:4200")
+public class AnaliseController {
+
+    private final AnalisadorArquivo analisador = new AnalisadorArquivo();
+
+    @PostMapping
+    public ResultadoAnalise analisar(@RequestParam ("arquivo")MultipartFile arquivo) throws IOException {
+        if(arquivo.isEmpty()) {
+            throw new IllegalArgumentException("Arquivo vazio");
+        }
+        Reader reader = new InputStreamReader(arquivo.getInputStream(), StandardCharsets.UTF_8);
+
+    }
+}

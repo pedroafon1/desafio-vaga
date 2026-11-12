@@ -10,6 +10,6 @@ public record Leitura(String placa, LocalDateTime dataHora, Double velocidadeKmh
 
     public double excessoPercentual() {
         double pct = (velocidadeKmh - limiteKmh) / limiteKmh * 100;
-        return Math.round(pct * 100.0) / 100.0;
+        return Math.round(pct * 10) / 10.0;
     }
 }
