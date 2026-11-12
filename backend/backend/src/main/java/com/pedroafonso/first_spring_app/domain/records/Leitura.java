@@ -1,4 +1,4 @@
-package com.pedroafonso.first_spring_app.domain;
+package com.pedroafonso.first_spring_app.domain.records;
 
 import java.time.LocalDateTime;
 

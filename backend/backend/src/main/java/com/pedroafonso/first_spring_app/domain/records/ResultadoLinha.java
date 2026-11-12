@@ -1,4 +1,4 @@
-package com.pedroafonso.first_spring_app.domain;
+package com.pedroafonso.first_spring_app.domain.records;
 
 public record ResultadoLinha(Leitura leitura, LinhaInvalida invalida) {
 

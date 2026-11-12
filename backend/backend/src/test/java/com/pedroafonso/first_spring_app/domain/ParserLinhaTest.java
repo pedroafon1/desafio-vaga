@@ -1,5 +1,6 @@
 package com.pedroafonso.first_spring_app.domain;
 
+import com.pedroafonso.first_spring_app.domain.records.ResultadoLinha;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -45,5 +46,4 @@ public class ParserLinhaTest {
         assertFalse(r.valida());
     }
 
-''
 }

@@ -1,5 +1,8 @@
 package com.pedroafonso.first_spring_app.domain;
 
+import com.pedroafonso.first_spring_app.domain.records.Leitura;
+import com.pedroafonso.first_spring_app.domain.records.ResultadoLinha;
+
 import java.time.LocalDateTime;
 
 public class ParserLinha {

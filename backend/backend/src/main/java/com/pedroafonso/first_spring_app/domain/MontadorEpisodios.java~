@@ -1,0 +1,51 @@
+package com.pedroafonso.first_spring_app.domain;
+
+import java.time.Duration;
+import java.util.*;
+
+public class MontadorEpisodios {
+
+    public static final Duration INTERVALO_MAXIMO = Duration.ofMinutes(5);
+
+    public List<Episodio> montar(List<Leitura> leituras) {
+        // 1. agrupar por placa
+        Map<String, List<Leitura>> porPlaca = new TreeMap<>();
+        for(Leitura l : leituras) {
+            porPlaca.computeIfAbsent(l.placa(), k -> new ArrayList<>()).add(l);
+        }
+
+        List<Episodio> episodios = new ArrayList<>();
+
+        for(List<Leitura> doVeiculo : porPlaca.values()) {
+            //2. Ordenar por data/hora
+            doVeiculo.sort(Comparator.comparing(Leitura::dataHora));
+
+            //3. percorrer
+            List<Leitura> atual = new ArrayList<>();
+            Leitura anterior = null;for (Leitura l : doVeiculo) {
+                boolean semSinal = anterior != null
+                        && Duration.between(anterior.dataHora(), l.dataHora()).compareTo(INTERVALO_MAXIMO) > 0;
+
+                if (semSinal && !atual.isEmpty()) {
+                    episodios.add(Episodio.de(atual));
+                    atual = new ArrayList<>();
+                }
+
+                if (l.emExcesso()) {
+                    atual.add(l);
+                } else if (!atual.isEmpty()) {
+                    episodios.add(Episodio.de(atual));
+                    atual = new ArrayList<>();
+                }
+
+                anterior = l;
+            }
+
+            if (!atual.isEmpty()) {
+                episodios.add(Episodio.de(atual));
+            }
+        }
+
+        return episodios;
+    }
+}

@@ -1,0 +1,26 @@
+package com.pedroafonso.first_spring_app.domain;
+
+import com.pedroafonso.first_spring_app.exceptions.ArquivoInvalidoException;
+import org.junit.jupiter.api.Test;
+
+import java.io.StringReader;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AnalisadorArquivoTest {
+    private final AnalisadorArquivo analisador = new AnalisadorArquivo();
+
+    private static final String CAB = "placa;dataHora;velocidadeKmh;limiteKmh";
+
+    @Test
+    void arquivoVazioLancaExcecao() {
+        assertThrows(ArquivoInvalidoException.class,
+                () -> analisador.analisar(new StringReader("")));
+    }
+
+    @Test
+    void cabecalhoInvalidoLancaExcecao() {
+        assertThrows(ArquivoInvalidoException.class,
+                () -> analisador.analisar(new StringReader(CAB + "\n")));
+    }
+}
